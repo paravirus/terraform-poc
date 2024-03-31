@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terraform Module Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Terraform Module Generator</h1>
+        <form id="cloudProviderForm">
+            <label for="cloudProvider">Select Cloud Provider:</label>
+            <select id="cloudProvider" name="cloudProvider" class="select-dropdown">
+                <option value="AWS">AWS</option>
+                <option value="AZURE">AZURE</option>
+            </select>
+            <br>
+            <label for="resourceType">Select Resource Type:</label>
+            <select id="resourceType" name="resourceType" class="select-dropdown">
+                <!-- Options will be populated dynamically via JavaScript -->
+            </select>
+            <br>
+            <button type="submit" class="submit-button">Generate Module</button>
+        </form>
+        <div id="terraformModuleBox" class="module-box" style="display: none;">
+            <h2>Generated Terraform Module:</h2>
+            <textarea id="terraformCode" rows="10" cols="50" class="code-textarea"></textarea>
+            <br>
+            <button id="copyButton" class="copy-button">Copy Module Code</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
