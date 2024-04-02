@@ -1,3 +1,4 @@
+NIST
 module "ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 NIST
