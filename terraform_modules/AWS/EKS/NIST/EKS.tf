@@ -1,8 +1,8 @@
-NIST
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
+  # NIST Compliance Settings
   cluster_name    = "my-cluster"
   cluster_version = "1.29"
 
@@ -62,8 +62,10 @@ module "eks" {
     }
   }
 
+  # Tags for compliance and organization
   tags = {
     Environment = "dev"
+    Compliance  = "NIST"
     Terraform   = "true"
   }
 }

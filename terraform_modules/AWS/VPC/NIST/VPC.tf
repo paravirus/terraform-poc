@@ -1,9 +1,9 @@
-NIST
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "{vpc-name}"
-  cidr = "{cidr}"
+  # NIST Compliance Settings
+  name = "my-vpc"
+  cidr = "10.0.0.0/16"
 
   azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
@@ -12,6 +12,10 @@ module "vpc" {
   enable_nat_gateway = true
   enable_vpn_gateway = true
 
-  tags = "{tags}"
+  # Tags for compliance and organization
+  tags = {
+    Environment = "dev"
+    Compliance  = "NIST"
+    Terraform   = "true"
   }
 }

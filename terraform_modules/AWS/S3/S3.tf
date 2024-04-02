@@ -10,4 +10,27 @@ module "s3_bucket" {
   versioning = {
     enabled = true
   }
+
+  # NIST Compliance Settings
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+
+  lifecycle_rule {
+    enabled = true
+    prefix  = ""
+    expiration {
+      days = 30
+    }
+  }
+
+  # Additional NIST Compliance Settings
+  tags = {
+    Environment = "Production"
+    Compliance  = "NIST"
+  }
 }
